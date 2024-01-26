@@ -1,7 +1,7 @@
 {
   "name": "@uguratakan/react-native-step-counter-improved",
   "displayName": "react-native-step-counter-improved",
-  "version": "0.2.4",
+  "version": "0.0.1",
   "summary": "It is a multi-platform library that combines CoreMotionSensor from iOS with SensorEventListener from Android.",
   "description": "This library provides an interface for tracking the number of steps taken by the user in a React Native app.",
   "main": "lib/commonjs/index.js",
