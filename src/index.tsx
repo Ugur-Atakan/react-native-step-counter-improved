@@ -18,7 +18,7 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n' +
   'If none of these fix the issue, please open an issue on the Github repository: ' +
-  'https://github.com/AndrewDongminYoo/react-native-step-counter`';
+  'https://github.com/Ugur-Atakan/react-native-step-counter-improved`';
 
 export interface ParsedStepCountData {
   dailyGoal: string;
@@ -48,7 +48,7 @@ const isTurboModuleEnabled = global.__turboModuleProxy != null;
  * TurboModules are enabled. If TurboModules are not enabled, it falls back to using the
  * `NativeModules.StepCounter` module. This allows the code to work with both TurboModules and
  * non-TurboModules environments.
- * https://github.com/AndrewDongminYoo/react-native-step-counter/issues/29#issue-1857677086
+ * https://github.com/Ugur-Atakan/react-native-step-counter-improved/issues/29#issue-1857677086
  */
 const StepCounterModule = isTurboModuleEnabled
   ? require('./NativeStepCounter').default

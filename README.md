@@ -1,37 +1,27 @@
 # React-Native Step Counter Library
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAndrewDongminYoo%2Freact-native-step-counter.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAndrewDongminYoo%2Freact-native-step-counter?ref=badge_shield)
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M4M8Q4QZ7)
-
-한국어 사용자는 [Korean version.](README.kr.md)를 참조하십시오.
-
 This library provides an interface for tracking the number of steps taken by the user in a React Native app. This package uses the `StepCounter` (or Custom accelerometer-based step-counter) Sensor API on Android and the `Core Motion` framework on iOS to count the steps. It's built using Turbo Module, a new module development architecture for React Native. I made this library compatible with both new and legacy architectures. (Because the turbo module is still in the experimental stage. so it is not widely used.)
 
 ## Installation
 
 ```shell
-# if you use pure npm (what a classic!),
-npm install react-native-step-counter
+npm install @uguratakan/react-native-step-counter-improved
 ```
 
 ```shell
-# or if you prefer to use Yarn (I love it's parallel install feature),
-yarn add react-native-step-counter
+yarn add @uguratakan/react-native-step-counter-improved
 ```
 
 ```shell
-# or if you use pnpm (it's fast and efficient),
-pnpm add react-native-step-counter
+pnpm add @uguratakan/react-native-step-counter-improved
 ```
 
 Native modules will automatically connect after React Native 0.60 version. So you don't need to link the native modules manually.
 
 👣 if you are using the legacy architecture, you need to follow the guide below. otherwise, you can [skip](#android) next step.
 
-## IF YOU WANT SEE A DEMO IN STANDALONE REACT-NATIVE APPLICATION, SEE [WALKING_TRACKER EXAMPLE](https://github.com/AndrewDongminYoo/walking_tracker) REPO
+## IF YOU WANT SEE A DEMO IN STANDALONE REACT-NATIVE APPLICATION, SEE [WALKING_TRACKER EXAMPLE](https://github.com/Ugur-Atakan/locationTracker) REPO
 
-Thank you for your interest in my first NPM open source package! I've received a lot of issue reports on various issues, especially the react-native's `NEW ARCHITECTURE` backwards compatibility, and I've more or less finalized those issues by fixing the code structure across the board. We had generated an example folder from [create-react-native-library](https://github.com/callstack/react-native-builder-bob)'s template and used it for this project, but due to the structure of that template, we found that the example folder contained a lot of code that was not suitable for reference in a working app, as it was part of the overall development process rather than a standalone application. For this reason, I'm going to independently manage the example application, which we had been developing informally as a sub-repository, as a repository named [walking_tracker](https://github.com/AndrewDongminYoo/walking_tracker). I'd really appreciate it if you could take this into consideration.
+Thank you for your interest in my first NPM open source package! I've received a lot of issue reports on various issues, especially the react-native's `NEW ARCHITECTURE` backwards compatibility, and I've more or less finalized those issues by fixing the code structure across the board. We had generated an example folder from [create-react-native-library](https://github.com/callstack/react-native-builder-bob)'s template and used it for this project, but due to the structure of that template, we found that the example folder contained a lot of code that was not suitable for reference in a working app, as it was part of the overall development process rather than a standalone application. For this reason, I'm going to independently manage the example application, which we had been developing informally as a sub-repository, as a repository named [walking_tracker](https://github.com/Ugur-Atakan/locationTracker). I'd really appreciate it if you could take this into consideration.
 
 ---
 
@@ -81,7 +71,7 @@ Thank you for your interest in my first NPM open source package! I've received a
   _4_. Rename all Objective-C(.m) files to Objective-C++ (.mm)
   _5_. Make your AppDelegate conform to RCTAppDelegate
 
-  - [ios/StepCounterExample/AppDelegate.h](https://github.com/AndrewDongminYoo/react-native-step-counter/blob/main/example/ios/StepCounterExample/AppDelegate.h)
+  - [ios/StepCounterExample/AppDelegate.h](https://github.com/Ugur-Atakan/react-native-step-counter-improved/blob/main/example/ios/StepCounterExample/AppDelegate.h)
 
     ```diff
     - #import <React/RCTBridgeDelegate.h>
@@ -95,7 +85,7 @@ Thank you for your interest in my first NPM open source package! I've received a
     @end
     ```
 
-  - [ios/StepCounterExample/AppDelegate.mm](https://github.com/AndrewDongminYoo/react-native-step-counter/blob/main/example/ios/StepCounterExample/AppDelegate.mm)
+  - [ios/StepCounterExample/AppDelegate.mm](https://github.com/Ugur-Atakan/react-native-step-counter-improved/blob/main/example/ios/StepCounterExample/AppDelegate.mm)
 
     ```objective-c++
     #import "AppDelegate.h"
@@ -215,7 +205,7 @@ import {
   parseStepData,
   startStepCounterUpdate,
   stopStepCounterUpdate,
-} from 'react-native-step-counter';
+} from '@uguratakan/react-native-step-counter-improved';
 ```
 
 Use the `isStepCountingSupported` method to check if the device has a step counter or accelerometer sensor.
@@ -248,7 +238,7 @@ async function startStepCounter() {
 
 Here's an example of a complete React component that uses the `NativeStepCounter`.
 
-Link to Example Application: [here](https://github.com/AndrewDongminYoo/react-native-step-counter/blob/main/example/src/App.tsx)
+Link to Example Application: [here](https://github.com/Ugur-Atakan/react-native-step-counter-improved/blob/main/example/src/App.tsx)
 
 ## Change Log
 
@@ -265,5 +255,3 @@ MIT
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAndrewDongminYoo%2Freact-native-step-counter.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAndrewDongminYoo%2Freact-native-step-counter?ref=badge_large)
