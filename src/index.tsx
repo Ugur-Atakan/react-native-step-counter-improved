@@ -5,7 +5,7 @@ import { eventName, VERSION, NAME } from './NativeStepCounter';
 
 /* A way to check if the module is linked. */
 const LINKING_ERROR =
-  "The package '@dongminyu/react-native-step-counter' doesn't seem to be linked. Make sure: \n\n" +
+  "The package '@uguratakan/react-native-step-counter-improved' doesn't seem to be linked. Make sure: \n\n" +
   Platform.select({
     ios: '- You have run `pod install` in the `ios` directory and then clean, rebuild and re-run the app. You may also need to re-open Xcode to get the new pods.\n',
     android:
@@ -62,7 +62,7 @@ const StepCounterModule = isTurboModuleEnabled
  * counterType - The type of counter used to count the steps.
  * @throws {Error} LINKING_ERROR - Throws Error If global variable turboModuleProxy is undefined.
  * @example
- * import { StepCounter } from '@dongminyu/react-native-step-counter';
+ * import { StepCounter } from '@uguratakan/react-native-step-counter-improved';
  */
 const StepCounter = (
   StepCounterModule

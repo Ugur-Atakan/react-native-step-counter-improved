@@ -7,7 +7,7 @@ import {
   startStepCounterUpdate,
   stopStepCounterUpdate,
   type ParsedStepCountData,
-} from '@dongminyu/react-native-step-counter';
+} from '@uguratakan/react-native-step-counter-improved';
 import {
   getBodySensorPermission,
   getStepCounterPermission,
