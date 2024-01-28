@@ -32,8 +32,9 @@ import java.util.concurrent.TimeUnit
  * @see TimeUnit.NANOSECONDS.toMillis
  */
 class StepCounterService(
-    counterModule: StepCounterModule,
-    sensorManager: SensorManager
+        counterModule: StepCounterModule,
+        sensorManager: SensorManager,
+
 ) : SensorListenService(counterModule, sensorManager) {
     override val sensorTypeString = "Step Counter"
     override val sensorType = Sensor.TYPE_STEP_COUNTER
@@ -60,6 +61,7 @@ class StepCounterService(
      * @see android.hardware.SensorEvent.timestamp
      */
     override fun updateCurrentSteps(eventData: FloatArray): Boolean {
+
         // if the time difference is greater than the delay, set the current steps to the step count minus the initial steps
         // if the previous steps aren't initialized yet,
         return if (previousSteps.equals(0.0)) {

@@ -3,6 +3,7 @@ package com.stepcounter.services
 import android.hardware.Sensor
 import android.hardware.SensorManager
 import android.util.Log
+import com.facebook.react.bridge.WritableMap
 import com.stepcounter.StepCounterModule
 import com.stepcounter.utils.SensorFusionMath.dot
 import com.stepcounter.utils.SensorFusionMath.norm
@@ -10,37 +11,10 @@ import com.stepcounter.utils.SensorFusionMath.normalize
 import com.stepcounter.utils.SensorFusionMath.sum
 import kotlin.math.min
 
-/**
- * This class is responsible for listening to the accelerometer sensor.
- * It is used to count the steps of the user.
- * @constructor Creates a new AccelerometerService
- * @param counterModule The module that is responsible for the communication with the react-native layer
- * @param sensorManager The sensor manager that is responsible for the sensor
- *
- * @property sensorTypeString The type of the sensor as a string "Accelerometer"
- * @property sensorType The type of the sensor
- * @property detectedSensor The sensor that is detected
- * @property currentSteps The current steps
- * @property velocityRingCounter The velocity ring counter
- * @property accelRingCounter The acceleration ring counter
- * @property oldVelocityEstimate The old velocity estimate
- * @property startDate The last step time in milliseconds
- * @property accelRingX The acceleration ring for the x-axis
- * @property accelRingY The acceleration ring for the y-axis
- * @property accelRingZ The acceleration ring for the z-axis
- * @property velocityRing The velocity ring
- *
- * @see SensorListenService
- * @see Sensor
- * @see SensorManager
- * @see StepCounterModule
- * @see SensorManager.SENSOR_DELAY_NORMAL
- * @see Sensor.TYPE_ACCELEROMETER
- */
 class AccelerometerService(
-    counterModule: StepCounterModule,
-    sensorManager: SensorManager
-) : SensorListenService(counterModule, sensorManager) {
+        counterModule: StepCounterModule,
+        sensorManager: SensorManager,
+        ) : SensorListenService(counterModule, sensorManager) {
     override val sensorTypeString = "Accelerometer"
     override val sensorType = Sensor.TYPE_ACCELEROMETER
     override val detectedSensor: Sensor? = sensorManager?.getDefaultSensor(sensorType)

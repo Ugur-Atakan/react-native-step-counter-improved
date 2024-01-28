@@ -15,19 +15,9 @@ import com.stepcounter.services.SensorListenService
 import com.stepcounter.services.StepCounterService
 import com.stepcounter.utils.AndroidVersionHelper
 import com.stepcounter.utils.SettingsUtil
-import com.stepcounter.utils.GetLocation
 
 class StepCounterModule internal constructor(context: ReactApplicationContext) :
     StepCounterSpec(context) {
-    companion object {
-
-        const val NAME: String = "StepCounter"
-        private val TAG_NAME: String = StepCounterModule::class.java.name
-        private const val STEP_COUNTER = "android.permission.ACTIVITY_RECOGNITION"
-    }
-    private var locationManager: LocationManager? = null
-    private var getLocation: GetLocation? = null
-
     private val appContext: ReactApplicationContext = context
     private lateinit var sensorManager: SensorManager
     private val stepsOK: Boolean
@@ -38,9 +28,9 @@ class StepCounterModule internal constructor(context: ReactApplicationContext) :
         get() = AndroidVersionHelper.isHardwareStepCounterEnabled(appContext)
     private val walkingStatus: Boolean
         get() = stepCounterListener !== null
-
     private var stepCounterListener: SensorListenService? = null
 
+    private var locationManager: LocationManager? = null
     init {
         locationManager = context.applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         sensorManager = context.getSystemService(
@@ -89,12 +79,15 @@ class StepCounterModule internal constructor(context: ReactApplicationContext) :
     override fun addListener(eventName: String) {}
 
 
+
     @ReactMethod
-    override fun removeListeners(count: Double){}
+    override fun removeListeners(count: Double) {
+        TODO("Not yet implemented")
+    }
 
    @ReactMethod
-   override fun getStepCountDataBetweenDates(from: Double, to:Double){}
-
+   fun getStepCountDataBetweenDates(from: Double, to: Double, promise: Promise) {
+   }
     @ReactMethod
     fun openWifiSettings(promise: Promise) {
         try {
@@ -134,12 +127,6 @@ class StepCounterModule internal constructor(context: ReactApplicationContext) :
         }
     }
 
-    fun getCurrentPosition(options: ReadableMap?, promise: Promise) {
-        getLocation?.cancel()
-        getLocation = GetLocation(locationManager)
-        getLocation?.get(options, promise)
-    }
-
      override fun getName(): String = NAME
 
 
@@ -151,5 +138,11 @@ class StepCounterModule internal constructor(context: ReactApplicationContext) :
             e.message?.let { Log.e(TAG_NAME, it) }
             Log.e(TAG_NAME, eventType, e)
         }
+    }
+
+    companion object {
+        const val NAME: String = "StepCounter"
+        private val TAG_NAME: String = StepCounterModule::class.java.name
+        private const val STEP_COUNTER = "android.permission.ACTIVITY_RECOGNITION"
     }
 }
